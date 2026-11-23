@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rahul Kanawade — Full Stack Developer</title>
+<meta name="description" content="Full Stack Developer (React.js, Node.js, Express, Core Java, MySQL) based in Pune, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   HOW TO CUSTOMISE
+   1. Project photos: make one folder per project inside "images",
+      and name the photos 1.png, 2.png, 3.png ... (jpg / jpeg / webp also work)
+        images/cricket-scorer/   images/musically/   images/retailmatrix/
+        images/testmaster/       images/authguard/
+   2. Search for "TODO" and replace those links (repo links + live demo URL).
+   3. Put your resume PDF next to this file as Rahul_Kanawade_Resume.pdf
+   ===================================================== */
+:root{
+  --bg:#07070d; --bg2:#0d0d18; --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.09);
+  --text:#ecedf5; --muted:#9a9db3; --a1:#7c5cff; --a2:#00d4ff; --a3:#ff5c9d;
+  --grad:linear-gradient(120deg,var(--a1),var(--a2));
+  --radius:20px;
+}
+:root[data-theme="light"]{
+  --bg:#f6f6fb; --bg2:#ffffff; --card:rgba(255,255,255,.75); --border:rgba(20,20,60,.1);
+  --text:#14142b; --muted:#5d6079;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;line-height:1.1}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:110px 0;position:relative}
+
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.glow i{position:absolute;border-radius:50%;filter:blur(120px);opacity:.28}
+.glow i:nth-child(1){width:520px;height:520px;background:var(--a1);top:-160px;left:-120px}
+.glow i:nth-child(2){width:460px;height:460px;background:var(--a2);top:35%;right:-160px;opacity:.18}
+.glow i:nth-child(3){width:420px;height:420px;background:var(--a3);bottom:-160px;left:30%;opacity:.14}
+:root[data-theme="light"] .glow i{opacity:.16}
+main,header,footer{position:relative;z-index:1}
+
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:6px;
+  padding:8px 10px;border-radius:999px;background:var(--card);border:1px solid var(--border);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+nav a{font-size:14px;padding:7px 14px;border-radius:999px;color:var(--muted);transition:.2s}
+nav a:hover{color:var(--text);background:var(--card)}
+nav button{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:16px;padding:6px 10px;border-radius:999px}
+nav button:hover{color:var(--text)}
+@media(max-width:640px){nav a.hide-sm{display:none}}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:120px}
+.badge{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);padding:7px 14px;border-radius:999px;border:1px solid var(--border);background:var(--card)}
+.dot{width:8px;height:8px;border-radius:50%;background:#2ee59d;box-shadow:0 0 0 0 rgba(46,229,157,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(46,229,157,0)}100%{box-shadow:0 0 0 0 rgba(46,229,157,0)}}
+.hero h1{font-size:clamp(44px,8vw,92px);margin:26px 0 20px;font-weight:700}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{max-width:660px;color:var(--muted);font-size:clamp(17px,2vw,20px)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:14px;font-weight:600;font-size:15px;transition:.25s;border:1px solid var(--border);cursor:pointer}
+.btn.primary{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 10px 30px -10px var(--a1)}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px var(--a1)}
+.btn.ghost{background:var(--card)}
+.btn.ghost:hover{transform:translateY(-2px);border-color:var(--a1)}
+.typed{color:var(--text);font-weight:500}
+.caret{display:inline-block;width:2px;height:1em;background:var(--a2);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.16em;color:var(--a2);font-weight:600;margin-bottom:14px}
+.title{font-size:clamp(32px,5vw,52px);margin-bottom:18px}
+.sub{color:var(--muted);max-width:620px;margin-bottom:56px}
+
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about p{color:var(--muted);margin-bottom:16px;font-size:17px}
+.about p strong{color:var(--text);font-weight:600}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{padding:24px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border)}
+.stat b{display:block;font-family:'Space Grotesk';font-size:38px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:13.5px;color:var(--muted)}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.skill{padding:26px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border);transition:.3s}
+.skill:hover{transform:translateY(-4px);border-color:rgba(124,92,255,.5)}
+.skill h3{font-size:17px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.skill h3 em{font-style:normal;font-size:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px;background:rgba(124,92,255,.12);border:1px solid rgba(124,92,255,.25);color:var(--text)}
+.chip.hl{background:var(--grad);border-color:transparent;color:#fff;font-weight:600}
+.chip.learn{background:rgba(0,212,255,.1);border:1px dashed rgba(0,212,255,.45)}
+
+.tl{position:relative;padding-left:34px;border-left:1px dashed var(--border)}
+.tl-item{position:relative;padding:28px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border);margin-bottom:22px}
+.tl-item::before{content:"";position:absolute;left:-43px;top:34px;width:16px;height:16px;border-radius:50%;background:var(--grad);box-shadow:0 0 0 5px var(--bg)}
+.tl-item h3{font-size:22px}
+.tl-item .meta{color:var(--a2);font-size:14px;margin:6px 0 16px}
+.tl-item ul{list-style:none;display:grid;gap:10px}
+.tl-item li{color:var(--muted);padding-left:22px;position:relative}
+.tl-item li strong{color:var(--text);font-weight:600}
+.tl-item li::before{content:"→";position:absolute;left:0;color:var(--a1)}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:40px}
+.edu .skill p{color:var(--muted);font-size:14.5px}
+.edu .skill h3{margin-bottom:6px}
+
+.projects{display:grid;gap:34px}
+.project{display:grid;grid-template-columns:1.15fr 1fr;gap:34px;align-items:center;padding:22px;border-radius:28px;background:var(--card);border:1px solid var(--border);transition:.35s}
+.project:hover{border-color:rgba(0,212,255,.35);transform:translateY(-4px)}
+.project:nth-child(even){grid-template-columns:1fr 1.15fr}
+.project:nth-child(even) .shot{order:2}
+.project.noshot,.project.noshot:nth-child(even){grid-template-columns:1fr}
+.project.noshot .shot{display:none}
+.project.noshot .pinfo{padding:6px 10px}
+@media(max-width:860px){.project,.project:nth-child(even){grid-template-columns:1fr}.project:nth-child(even) .shot{order:0}}
+
+.shot{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;background:var(--bg2);border:1px solid var(--border);cursor:zoom-in;touch-action:pan-y}
+.track{display:flex;height:100%;transition:transform .55s cubic-bezier(.65,0,.35,1)}
+.track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;object-position:top;display:block;user-select:none;-webkit-user-drag:none}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(10,10,20,.55);color:#fff;font-size:18px;cursor:pointer;z-index:3;display:grid;place-items:center;opacity:0;transition:.25s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.arrow:hover{background:var(--a1);border-color:var(--a1)}
+.arrow.prev{left:12px}.arrow.next{right:12px}
+.shot:hover .arrow,.shot:focus-within .arrow{opacity:1}
+@media(hover:none){.arrow{opacity:1;width:36px;height:36px}}
+.dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:3;padding:6px 10px;border-radius:99px;background:rgba(10,10,20,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.dots button{width:8px;height:8px;border-radius:99px;border:0;background:rgba(255,255,255,.5);cursor:pointer;padding:0;transition:.3s}
+.dots button.on{width:22px;background:#fff}
+.counter{position:absolute;top:14px;right:14px;z-index:3;font-size:12px;font-weight:600;color:#fff;padding:6px 11px;border-radius:99px;background:rgba(10,10,20,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.shot.noimg{cursor:default;display:grid;place-items:center;text-align:center;padding:20px;
+  background:linear-gradient(135deg,rgba(124,92,255,.22),rgba(0,212,255,.14));}
+.shot.noimg::after{content:attr(data-hint);font-size:13px;color:var(--muted);border:1px dashed var(--border);padding:12px 16px;border-radius:12px;max-width:260px}
+.tag{position:absolute;top:14px;left:14px;font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:2}
+.tag.live{background:rgba(46,229,157,.18);color:#2ee59d;border:1px solid rgba(46,229,157,.4)}
+.tag.code{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25)}
+:root[data-theme="light"] .tag.code{color:#14142b;background:rgba(0,0,0,.06)}
+.pinfo h3{font-size:28px;margin-bottom:6px}
+.pinfo .kind{color:var(--a2);font-size:14px;margin-bottom:14px}
+.pinfo ul{list-style:none;display:grid;gap:8px}
+.pinfo li{color:var(--muted);padding-left:20px;position:relative}
+.pinfo li::before{content:"→";position:absolute;left:0;color:var(--a1)}
+.pinfo .chips{margin:18px 0 22px}
+.links{display:flex;gap:12px;flex-wrap:wrap}
+.links .btn{padding:10px 18px;font-size:14px}
+
+.contact{text-align:center;padding:70px 30px;border-radius:32px;background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(0,212,255,.1));border:1px solid var(--border)}
+.contact h2{font-size:clamp(34px,6vw,60px);margin-bottom:16px}
+.contact p{color:var(--muted);max-width:520px;margin:0 auto 34px}
+.contact .cta{justify-content:center;margin-top:0}
+footer{padding:40px 0;text-align:center;color:var(--muted);font-size:14px}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.dot,.caret{animation:none}}
+
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;place-items:center;z-index:100;padding:24px;cursor:zoom-out}
+#lb.open{display:grid}
+#lb img{max-width:100%;max-height:90vh;border-radius:14px}
+</style>
+</head>
+<body>
+<div class="glow"><i></i><i></i><i></i></div>
+
+<nav>
+  <a href="#about" class="hide-sm">About</a>
+  <a href="#skills" class="hide-sm">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+  <button id="theme" aria-label="Toggle theme">☾</button>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span> Open to full-time roles · Pune, India</span>
+    <h1>Hi, I'm <span class="grad">Rahul Kanawade</span>.<br>I build full-stack products.</h1>
+    <p class="lead">Full Stack Developer working with <strong>React.js</strong>, <strong>Node.js / Express</strong> and <strong>MySQL</strong>, with a solid <strong>Core Java</strong> foundation. I build secure APIs, dashboards and apps that people actually use.</p>
+    <p class="lead" style="margin-top:14px">Currently into: <span class="typed" id="typed"></span><span class="caret"></span></p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View my work →</a>
+      <a class="btn ghost" href="Rahul_Kanawade_Resume.pdf" download>Download résumé</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow rv">About</div>
+    <h2 class="title rv">Detail-oriented, and I ship.</h2>
+    <div class="about">
+      <div class="rv">
+        <p>I'm a <strong>Computer Science postgraduate</strong> and full stack developer with internship and project experience in <strong>React.js, Node.js, Core Java and MySQL</strong>. I'm strong in OOP, DBMS and SQL, with a working foundation in data structures.</p>
+        <p>I've built <strong>authentication systems, dashboards and a live scoring app</strong> with secure APIs and optimized databases. At my internship I redesigned database schemas to <strong>cut query time by ~50%</strong> and replaced manual deployments with a <strong>CI/CD pipeline</strong>.</p>
+        <p>I'm a clear communicator with hands-on exposure to Agile teams and code reviews, and I test and review my own work before it reaches anyone else. Right now I'm picking up <strong>Firebase</strong>.</p>
+      </div>
+      <div class="stats rv">
+        <div class="stat"><b>6 mo</b><span>Internship experience</span></div>
+        <div class="stat"><b>~50%</b><span>Faster queries after schema redesign</span></div>
+        <div class="stat"><b>40%</b><span>Shorter deployment time</span></div>
+        <div class="stat"><b>4</b><span>Projects built</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow rv">Toolbox</div>
+    <h2 class="title rv">Skills &amp; tech</h2>
+    <p class="sub rv">What I work with day to day.</p>
+    <div class="skills">
+      <div class="skill rv"><h3><em>⚛️</em> Frontend</h3><div class="chips"><span class="chip">React.js</span><span class="chip">Redux</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Bootstrap</span></div></div>
+      <div class="skill rv"><h3><em>⚙️</em> Backend &amp; APIs</h3><div class="chips"><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">REST APIs</span><span class="chip">JWT Auth</span><span class="chip learn">Firebase (learning)</span></div></div>
+      <div class="skill rv"><h3><em>🗄️</em> Databases</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">SQL queries &amp; reporting</span></div></div>
+      <div class="skill rv"><h3><em>🧠</em> Languages</h3><div class="chips"><span class="chip">Java (Core)</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">Python (basic)</span></div></div>
+      <div class="skill rv"><h3><em>🚀</em> Tools &amp; DevOps</h3><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">GitHub Actions (CI/CD)</span><span class="chip">Docker</span></div></div>
+      <div class="skill rv"><h3><em>📚</em> Fundamentals &amp; practice</h3><div class="chips"><span class="chip">OOP</span><span class="chip">DBMS</span><span class="chip">Data Structures</span><span class="chip">OS (basics)</span><span class="chip">Unit Testing</span><span class="chip">Agile / Scrum</span><span class="chip">Code Reviews</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow rv">Experience</div>
+    <h2 class="title rv">Where I've worked</h2>
+    <div class="tl">
+      <div class="tl-item rv">
+        <h3>Full Stack Developer Intern</h3>
+        <div class="meta">Quantify Data Solutions · Remote · Jul 2024 – Jan 2025</div>
+        <ul>
+          <li><strong>Reusable components:</strong> built 10+ reusable React components integrated with APIs, improving development speed by 20% and reducing duplicate code.</li>
+          <li><strong>Performance:</strong> redesigned MySQL schemas and REST APIs to fix slow queries, cutting query execution time by ~50%.</li>
+          <li><strong>Process reliability:</strong> replaced a manual, error-prone deployment process with a GitHub Actions CI/CD pipeline, reducing deployment time by 40%.</li>
+          <li><strong>Teamwork:</strong> worked in Agile sprints with 6 developers through daily standups and peer code reviews, delivering tested features and meeting sprint goals on time.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="skill rv"><h3>🎓 M.Sc. Computer Science</h3><p>Suryadatta Group of Institutes, Pune · 2022 – 2024<br>CGPA 6.88</p></div>
+      <div class="skill rv"><h3>🎓 B.Sc. Computer Science</h3><p>B.N. Sarda Science College, Sangamner · 2019 – 2022<br>CGPA 8.1</p></div>
+      <div class="skill rv"><h3>📜 Certifications</h3><p>Full Stack Development — QSpiders (2023)<br>Web Development Bootcamp — GeeksforGeeks (2022)</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow rv">Selected work</div>
+    <h2 class="title rv">Projects</h2>
+    <p class="sub rv">Click any screenshot to enlarge it.</p>
+
+    <div class="projects">
+
+      <!-- 1. Cricket Scorer (LIVE) -->
+      <article class="project rv">
+        <div class="shot" data-folder="images/turf-scorer" data-hint="Add photos to images/turf-scorer/ named 1.png, 2.png, 3.png…">
+          <span class="tag live">● Live</span>
+        </div>
+        <div class="pinfo">
+          <h3>Turf Scorer</h3>
+          <div class="kind">Live match scoring app</div>
+          <ul>
+            <li>Covers match setup, ball-by-ball scoring with undo, Super Over, rematch flow and a result screen.</li>
+            <li>Voice input with the Web Speech API, so users can speak player names instead of typing.</li>
+            <li>Ran a bug-fix pass on state management and Turf cricket-rule issues: dismissal tracking, undo after innings end and bowler over restrictions.</li>
+          </ul>
+          <div class="chips"><span class="chip">React.js</span><span class="chip">Web Speech API</span></div>
+          <div class="links">
+            <a class="btn primary" href="https://turfcricket.vercel.app/" target="_blank" rel="noopener">Live demo ↗</a> <!-- TODO -->
+            <a class="btn ghost" href="https://github.com/Rahulkanwade/turf-scorer" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. RetailMatrix -->
+      <article class="project rv">
+        <div class="shot" data-folder="images/retailmatrix" data-hint="Add photos to images/retailmatrix/ named 1.png, 2.png, 3.png…">
+          <span class="tag code">Source on GitHub</span>
+        </div>
+        <div class="pinfo">
+          <h3>RetailMatrix</h3>
+          <div class="kind">Business analytics dashboard</div>
+          <ul>
+            <li>Built dashboards for sales and revenue tracking, replacing repetitive manual work.</li>
+            <li>Automated SQL reporting for quick financial insights.</li>
+          </ul>
+          <div class="chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">MySQL</span></div>
+          <div class="links"><a class="btn ghost" href="https://github.com/Rahulkanwade/RetailMatrix" target="_blank" rel="noopener">GitHub ↗</a></div> <!-- TODO: link the exact repo -->
+        </div>
+      </article>
+
+      <!-- 3. Musically -->
+      <article class="project rv">
+        <div class="shot" data-folder="images/musically" data-hint="Add photos to images/musically/ named 1.png, 2.png, 3.png…">
+          <span class="tag code">Source on GitHub</span>
+        </div>
+        <div class="pinfo">
+          <h3>Musically</h3>
+          <div class="kind">Cloud-based music platform</div>
+          <ul>
+            <li>Developed authentication and session handling for a full-stack streaming app.</li>
+            <li>Built music playback with a modular design, giving a working prototype with reliable streaming during testing.</li>
+          </ul>
+          <div class="chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">MySQL</span></div>
+          <div class="links"><a class="btn ghost" href="https://github.com/Rahulkanwade/Musicallly-A-music-managment-system" target="_blank" rel="noopener">GitHub ↗</a></div> <!-- TODO: link the exact repo -->
+        </div>
+      </article>
+
+      <!-- 4. Laxmi Bakery -->
+      <article class="project rv">
+        <div class="shot" data-folder="images/laxmi-bakery" data-hint="Add photos to images/laxmi-bakery/ named 1.png, 2.png, 3.png…">
+          <span class="tag code">Source on GitHub</span>
+        </div>
+        <div class="pinfo">
+          <h3>Laxmi Bakery</h3>
+          <div class="kind">Full-stack e-commerce platform</div>
+          <ul>
+            <li>E-commerce platform for a bakery business: product browsing, cart, checkout, order tracking and an admin dashboard.</li>
+            <li>Online payments with Razorpay, including signature verification.</li>
+            <li>Backend built with Spring Boot and Spring Security, with JWT authentication and role-based access for customers and admins.</li>
+          </ul>
+         <div class="chips">
+  <span class="chip hl">React (Vite)</span>
+  <span class="chip">Spring Boot</span>
+  <span class="chip">Spring Security</span>
+  <span class="chip">MySQL</span>
+  <span class="chip">JWT</span>
+  <span class="chip">Razorpay</span>
+  <span class="chip">Bootstrap</span>
+</div>
+  <div class="links"><a class="btn ghost" href="https://github.com/Rahulkanwade/smart_bekary" target="_blank" rel="noopener">GitHub ↗</a></div> <!-- TODO: link the exact repo -->
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact rv">
+      <h2>Let's build something <span class="grad">together.</span></h2>
+      <p>I'm looking for a full-stack role where I can ship reliable, well-tested software and keep learning. Drop me a line.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:kanwader7@gmail.com">kanwader7@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/rahul-kanawade-777aa2270" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn ghost" href="https://github.com/Rahulkanwade" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="yr"></span> Rahul Kanawade · Pune, India</footer>
+
+<div id="lb"><img alt=""></div>
+
+<script>
+// theme
+const root=document.documentElement,tbtn=document.getElementById('theme');
+try{const s=localStorage.getItem('theme');if(s)root.dataset.theme=s}catch(e){}
+function paint(){tbtn.textContent=root.dataset.theme==='light'?'☀':'☾'}
+paint();
+tbtn.onclick=()=>{root.dataset.theme=root.dataset.theme==='light'?'dark':'light';try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}paint()};
+
+// typing effect
+const words=['React & Node.js','Express & REST APIs','clean database design','secure authentication'];
+const el=document.getElementById('typed');let w=0,c=0,del=false;
+(function tick(){
+  const cur=words[w];
+  el.textContent=cur.slice(0,c);
+  if(!del&&c===cur.length){del=true;return setTimeout(tick,1500)}
+  if(del&&c===0){del=false;w=(w+1)%words.length}
+  c+=del?-1:1;setTimeout(tick,del?35:70);
+})();
+
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(n=>io.observe(n));
+
+// lightbox
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+lb.onclick=()=>lb.classList.remove('open');
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+
+// Image sliders: each .shot looks in its data-folder for 1.png, 2.png, 3.png ...
+// (png / jpg / jpeg / webp all work, up to 12 images, stops at the first missing number)
+const EXTS=['png','jpg','jpeg','webp'];
+const probe=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(src);i.onerror=()=>r(null);i.src=src});
+async function findImage(folder,n){for(const e of EXTS){const s=`${folder}/${n}.${e}`;if(await probe(s))return s}return null}
+async function loadImages(folder){const out=[];for(let n=1;n<=12;n++){const s=await findImage(folder,n);if(!s)break;out.push(s)}return out}
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function buildSlider(shot,list){
+  const name=shot.closest('.project').querySelector('h3').textContent;
+  const track=document.createElement('div');track.className='track';
+  list.forEach((src,i)=>{const im=document.createElement('img');im.src=src;im.alt=`${name} screenshot ${i+1}`;im.draggable=false;track.appendChild(im)});
+  shot.appendChild(track);
+  let idx=0,timer,dots=null,counter=null;
+  const go=n=>{
+    idx=(n+list.length)%list.length;
+    track.style.transform=`translateX(-${idx*100}%)`;
+    if(dots)[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===idx));
+    if(counter)counter.textContent=`${idx+1} / ${list.length}`;
+  };
+  const stop=()=>clearInterval(timer);
+  const restart=()=>{stop();if(!reduce&&list.length>1)timer=setInterval(()=>go(idx+1),4500)};
+  if(list.length>1){
+    const mk=(cls,txt,label,fn)=>{const b=document.createElement('button');b.className=cls;b.innerHTML=txt;b.setAttribute('aria-label',label);b.onclick=e=>{e.stopPropagation();fn();restart()};shot.appendChild(b)};
+    mk('arrow prev','‹','Previous image',()=>go(idx-1));
+    mk('arrow next','›','Next image',()=>go(idx+1));
+    dots=document.createElement('div');dots.className='dots';
+    list.forEach((_,i)=>{const d=document.createElement('button');d.setAttribute('aria-label',`Image ${i+1}`);d.onclick=e=>{e.stopPropagation();go(i);restart()};dots.appendChild(d)});
+    shot.appendChild(dots);
+    counter=document.createElement('div');counter.className='counter';shot.appendChild(counter);
+    let x0=null;
+    shot.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;stop()},{passive:true});
+    shot.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(idx+(dx<0?1:-1));x0=null;restart()});
+    shot.addEventListener('mouseenter',stop);
+    shot.addEventListener('mouseleave',restart);
+    restart();
+  }
+  go(0);
+  shot.addEventListener('click',()=>{lbi.src=list[idx];lb.classList.add('open')});
+}
+
+document.querySelectorAll('.shot').forEach(async s=>{
+  const list=await loadImages(s.dataset.folder);
+  if(list.length)buildSlider(s,list);
+  else if(s.dataset.optional)s.closest('.project').classList.add('noshot');
+  else s.classList.add('noimg');
+});
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
